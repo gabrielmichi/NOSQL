@@ -16,7 +16,7 @@ SET "antepenultimo_sorteio" "2, 17, 18, 26, 35, 43"
 --pesquisa todas as chaves
 KEYS * 
 
---criar um padr„o com : (dois pontos)
+--criar um padr√£o com : (dois pontos)
 SET resultado:17-05-2015:megasena "2, 15, 25, 28, 32"
 SET resultado:10-05-2015:megasena "4, 16, 19, 34, 29"
 
@@ -27,8 +27,8 @@ MSET resultado:05-05-2015:gigasena "1, 25, 34, 67, 89, 90" resultado:15-05-2015:
 
 --similar comando like
 --? um caracter - * um ou mais
---[] podendo colocar opÁıes [37]
---padr„o (tipo:identificador:campo:)
+--[] podendo colocar op√ß√µes [37]
+--padr√£o (tipo:identificador:campo:)
 KEYS "resultado*"
 KEYS "resultado:*-05-2015:megasena"
 KEYS "resultado:1*-05-2015:megasena"
@@ -39,7 +39,7 @@ KEYS "resultado:?[37]-??-????:megasena"
 KEYS "resultado:1[57]-??-????:*sena"
 
 --Hash
---Dicion·rio de informaÁıes
+--Dicion√°rio de informa√ß√µes
 
 --inserir
 HSET resultado:24-05-2015:megasena "numeros" "13, 17, 19, 25, 28, 32"
@@ -58,7 +58,7 @@ HMSET "resultado:05-06-2015:megasena" "numeros" "5, 19, 23, 28, 46, 49" "ganhado
 --recupera todos valores
 HGETALL "resultado:05-06-2015:megasena"
 
---Expira seÁ„o
+--Expira se√ß√£o
 EXPIRE "sessao:usuario:11675" 1800
 
 --Verificar o tempo que falta pra expirar
@@ -74,7 +74,7 @@ INCRBYFLOAT compras:25-05-2015:valor -0.50
 DECR pagina:/contato:25-05-2015
 DECRBY compras:25-05-2015:valor 10
 
---armazena bit usu·rio (booleano 0-1)
+--armazena bit usu√°rio (booleano 0-1)
 SETBIT acesso:25-05-2015 15 1
 SETBIT acesso:25-05-2015 32 1
 
@@ -82,7 +82,7 @@ SETBIT acesso:25-05-2015 32 1
 GETBIT acesso:25-05-2015 15
 GETBIT acesso:25-05-2015 32
 
---conta a quantidade de usu·rios q acessaram
+--conta a quantidade de usu√°rios q acessaram
 BITCOUNT acesso:25-05-2015
 
 --OPERADOR "E"
@@ -92,7 +92,7 @@ BITCOUNT acesso:25-e-26-06-2015
 
 --OPERADOR "ou"
 BITOP OR acesso:25-ou-26-06-2015 acesso:25-06-2015 acesso:26-06-2015
-GETBIT acesso:25-ou-26-06-2015 1 --verificar usu·rio 1
-GETBIT acesso:25-ou-26-06-2015 2 --verificar usu·rio 2
-GETBIT acesso:25-ou-26-06-2015 3 --verificar usu·rio 3
+GETBIT acesso:25-ou-26-06-2015 1 --verificar usu√°rio 1
+GETBIT acesso:25-ou-26-06-2015 2 --verificar usu√°rio 2
+GETBIT acesso:25-ou-26-06-2015 3 --verificar usu√°rio 3
 BITCOUNT acesso:25-ou-26-06-2015
